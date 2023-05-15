@@ -1,0 +1,12 @@
+
+
+.autocomplete-wrapper div, input {
+  width: 100%;
+}
+
+.autocomplete-wrapper {
+  width: 300px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #000;
+}
