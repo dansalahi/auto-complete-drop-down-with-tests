@@ -31,6 +31,10 @@ const AutocompleteSelect = () => {
     setShowOptions(true);
   };
 
+  const handleToggle = () => {
+    setShowOptions((prev) => !prev);
+  };
+
   const handleInputClick = () => {
     setShowOptions(true);
     setIsKeyboardNavigationOn(true);
@@ -105,7 +109,7 @@ const AutocompleteSelect = () => {
             width="24"
             src="/arrow-down.svg"
             alt="Arrow pointing down"
-            onClick={handleInputClick}
+            onClick={handleToggle}
           />
         </div>
 
