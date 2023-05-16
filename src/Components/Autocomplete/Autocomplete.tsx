@@ -107,12 +107,23 @@ const AutocompleteSelect = () => {
             aria-autocomplete="list"
           />
 
-          <img
-            width="24"
-            src="/arrow-down.svg"
-            alt="Arrow pointing down"
-            onClick={handleToggle}
-          />
+          {showOptions ? (
+            <img
+              width="24"
+              src="/arrow-up.svg"
+              alt="Arrow pointing down"
+              onClick={handleToggle}
+              className="arrow"
+            />
+          ) : (
+            <img
+              width="24"
+              src="/arrow-down.svg"
+              alt="Arrow pointing down"
+              onClick={handleToggle}
+              className="arrow"
+            />
+          )}
         </div>
 
         {showOptions && (

@@ -20,7 +20,6 @@ input {
   border-radius: 8px;
   padding: 0px;
   overflow-x: hidden;
-
 }
 
 .input {
@@ -68,5 +67,12 @@ input {
 }
 
 .options:hover {
-  background-color: rgba(	224, 224, 229, 0.5);
+  background-color: rgba(224, 224, 229, 0.5);
+}
+
+.arrow {
+  margin: 0 0.2rem;
+}
+.arrow:hover {
+  cursor: pointer;
 }
