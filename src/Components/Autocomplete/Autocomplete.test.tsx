@@ -21,7 +21,7 @@ describe("AutocompleteSelect", () => {
     render(<AutocompleteSelect />);
     const inputElement = screen.getByRole("textbox");
     fireEvent.click(inputElement);
-    const optionElement = screen.getByText("Apple");
+    const optionElement = screen.getByText("🍎 Apple");
     fireEvent.click(optionElement);
     // @ts-ignore
     expect(inputElement.value).toBe("Apple");

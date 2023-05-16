@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 const initalValues = [
-  "Apple",
-  "Banana",
-  "Cherry",
-  "Date",
-  "Fig",
-  "Grape",
-  "Kiwi",
+  { icon: "🍎", item: "Apple" },
+  { icon: "🍌", item: "Banana" },
+  { icon: "🍒", item: "Cherry" },
+  { icon: "📅", item: "Date" },
+  { icon: "🌰", item: "Fig" },
+  { icon: "🍇", item: "Grape" },
+  { icon: "🥝", item: "Kiwi" },
 ];
 
 const AutocompleteSelect = () => {
@@ -20,7 +20,7 @@ const AutocompleteSelect = () => {
 
   const filteredOptions = options.filter((option) => {
     const regex = new RegExp(`.*${inputValue}.*`, "i");
-    return regex.test(option);
+    return regex.test(option.item);
   });
 
   const handleInputChange = (event: {
@@ -71,7 +71,7 @@ const AutocompleteSelect = () => {
 
   const handlePressEnter = () => {
     setShowOptions(false);
-    setInputValue(filteredOptions[activeOptionIndex]);
+    setInputValue(filteredOptions[activeOptionIndex].item);
     setShowOptions(false);
   };
 
@@ -103,8 +103,6 @@ const AutocompleteSelect = () => {
             placeholder="Choose a Fruit:"
             onKeyDown={handleKeyPress}
             className={showOptions ? "form-input" : "active-form-input"}
-            aria-controls="optionsWrapper"
-            aria-autocomplete="list"
           />
 
           {showOptions ? (
@@ -113,7 +111,7 @@ const AutocompleteSelect = () => {
               src="/arrow-up.svg"
               alt="Arrow pointing down"
               onClick={handleToggle}
-              className="arrow"
+              onBlur={handleInputBlur}
             />
           ) : (
             <img
@@ -121,7 +119,7 @@ const AutocompleteSelect = () => {
               src="/arrow-down.svg"
               alt="Arrow pointing down"
               onClick={handleToggle}
-              className="arrow"
+              onBlur={handleInputBlur}
             />
           )}
         </div>
@@ -130,8 +128,8 @@ const AutocompleteSelect = () => {
           <div className="options-wrapper">
             {filteredOptions.map((option, index) => (
               <div
-                key={option}
-                onClick={() => handleOptionSelect(option)}
+                key={option.item}
+                onClick={() => handleOptionSelect(option.item)}
                 onMouseOver={handleHoverOption}
                 className="options"
                 style={{
@@ -139,7 +137,7 @@ const AutocompleteSelect = () => {
                   backgroundColor: index === activeOptionIndex ? "" : "",
                 }}
               >
-                {option}
+                {`${option.icon} ${option.item}`}
               </div>
             ))}
           </div>
