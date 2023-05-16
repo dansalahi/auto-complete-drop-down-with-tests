@@ -103,6 +103,8 @@ const AutocompleteSelect = () => {
             placeholder="Choose a Fruit:"
             onKeyDown={handleKeyPress}
             className={showOptions ? "form-input" : "active-form-input"}
+            aria-controls="optionsWrapper"
+            aria-autocomplete="list"
           />
 
           <img
